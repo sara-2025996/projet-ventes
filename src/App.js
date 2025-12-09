@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LandingPage from './pages/landingPage'
+import Dashboard from './pages/dashboard'
+import Liste from './pages/ventesList'
+import AddVente from './pages/addVente'
+import EditeVente from './pages/venteEdite'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<LandingPage/>}  />
+            <Route path='/dashboard' element={<Dashboard/>}  />
+            <Route path='/ventes' element={<Liste/>}  />
+            <Route path='/ventes/add' element={<AddVente/>}  />
+            <Route path='/ventes/mod/:id' element={<EditeVente/>}  />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
